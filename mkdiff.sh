@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Filename:                mkdiff.sh
 # Description:             Creates an instance of VM
-# Time-stamp:              <2018-02-17 14:30:06 fultonj> 
+# Time-stamp:              <2018-02-17 14:35:35 fultonj> 
 # -------------------------------------------------------
 # SSH into $dom0 (the hypervisor) and create an instance
 # of the base image stored as diffs on top of it
@@ -57,7 +57,7 @@ if [[ $REDEFINE -eq 1 ]]; then
     ssh root@$dom0 'virsh define /usr/share/virsh-templates/diff.xml'
 
     echo "Setting hostname"
-    ssh root@$dom0 'virt-customize -a /var/lib/libvirt/images/diff.qcow2 --hostname diff.cloud.lab.eng.bos.redhat.com'
+    ssh root@$dom0 'virt-customize -a /var/lib/libvirt/images/diff.qcow2 --hostname diff.example.com'
 
     echo "Updating image's ifcfg-eth{0,1}"
 
