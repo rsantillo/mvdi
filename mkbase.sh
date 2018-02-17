@@ -37,6 +37,10 @@ virsh list --all
 virsh shutdown base
 virsh list --all
 
+if [[ ! -d /usr/share/virsh-templates/ ]]; then
+  mkdir /usr/share/virsh-templates/
+fi
+
 cp /etc/libvirt/qemu/base.xml /usr/share/virsh-templates/base.xml
 sed -i '/uuid/d' /usr/share/virsh-templates/base.xml
 
