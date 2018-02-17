@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Filename:                mkdiff.sh
 # Description:             Creates an instance of VM
-# Time-stamp:              <2018-02-17 14:07:30 fultonj> 
+# Time-stamp:              <2018-02-17 14:30:06 fultonj> 
 # -------------------------------------------------------
 # SSH into $dom0 (the hypervisor) and create an instance
 # of the base image stored as diffs on top of it
@@ -52,7 +52,7 @@ if [[ $REDEFINE -eq 1 ]]; then
 
     echo "Creating diff from image"
 
-    ssh root@$dom0 'qemu-img create -f qcow2 -b /var/lib/libvirt/images/diff-base-image.qcow2 /var/lib/libvirt/images/diff.qcow2'
+    ssh root@$dom0 'qemu-img create -f qcow2 -b /var/lib/libvirt/images/base-image.qcow2 /var/lib/libvirt/images/diff.qcow2'
 
     ssh root@$dom0 'virsh define /usr/share/virsh-templates/diff.xml'
 
