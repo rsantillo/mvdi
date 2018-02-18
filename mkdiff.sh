@@ -54,7 +54,7 @@ if [[ $REDEFINE -eq 1 ]]; then
 
     ssh root@$dom0 'qemu-img create -f qcow2 -b /var/lib/libvirt/images/base.qcow2 /var/lib/libvirt/images/diff.qcow2'
 
-    ssh root@$dom0 'virsh define /usr/share/virsh-templates/diff.xml'
+    ssh root@$dom0 'virsh define /usr/share/virsh-templates/base.xml'
 
     echo "Setting hostname"
     ssh root@$dom0 'virt-customize -a /var/lib/libvirt/images/diff.qcow2 --hostname diff.example.com'
