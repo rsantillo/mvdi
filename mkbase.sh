@@ -41,8 +41,9 @@ if [[ ! -d /usr/share/virsh-templates/ ]]; then
   mkdir /usr/share/virsh-templates/
 fi
 
-cp /etc/libvirt/qemu/base.xml /usr/share/virsh-templates/base.xml
-sed -i '/uuid/d' /usr/share/virsh-templates/base.xml
+cp /etc/libvirt/qemu/base.xml /usr/share/virsh-templates/diff.xml
+sed -i '/uuid/d' /usr/share/virsh-templates/diff.xml
+sed -i s/\<name\>base\<\\/name\>/\<name\>diff\<\\/name\>/g /usr/share/virsh-templates/diff.xml
 
 echo "The following now exist from which to derive diffs:"
 ls -l /var/lib/libvirt/images/base.qcow2
