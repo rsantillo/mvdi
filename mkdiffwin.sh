@@ -37,7 +37,7 @@ ssh root@$dom0 'rm -f /var/lib/libvirt/images/windiff.qcow2'
 
 echo "Creating diff from image"
 
-ssh root@$dom0 'qemu-img create -f qcow2 -b /var/lib/libvirt/images/win7-test.img /var/lib/libvirt/images/windiff.qcow2'
+ssh root@$dom0 'qemu-img create -f qcow2 -b /var/lib/libvirt/images/win7-test.qcow2 /var/lib/libvirt/images/windiff.qcow2'
 
 ssh root@$dom0 'virsh define /usr/share/virsh-templates/windiff.xml'
 
